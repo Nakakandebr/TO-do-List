@@ -1,0 +1,92 @@
+#todo-list {
+  margin:0 auto;
+  width: 50%;
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+  border-radius: 2px;
+
+}
+
+#dep{
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+h1 {
+  text-align: center;
+}
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+ 
+}
+#new-task {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style for button */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hover effect for button */
+button:hover {
+  background-color: red;
+}
+.completed {
+  text-decoration: line-through;
+}
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 50;
+  
+}
+
+#todo-list li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#todo-list li input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#todo-list li input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #ccc;
+
+}
+.complete-btn {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
