@@ -1,4 +1,3 @@
-
 document.getElementById("form").addEventListener("submit", async function(event){
     event.preventDefault();
     
@@ -33,4 +32,5 @@ document.getElementById("form").addEventListener("submit", async function(event)
      result.id ? success.innerHTML ="User added successfully " : success.innerHTML="User not added"
     
     })
+
     
