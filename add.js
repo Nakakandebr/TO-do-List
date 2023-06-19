@@ -3,7 +3,7 @@ document.getElementById("form").addEventListener("submit", async function(event)
     event.preventDefault();
     
     let id = document.getElementById("first-task").value;
-    let todo = document.getElementById("last-task").value;
+    let todo = document.getElementById("time").value;
     let userid = document.getElementById("id").value;
     let data ={
         id:id,
