@@ -1,76 +1,118 @@
-// let toDoList = document.getElementById('todo-list');
-// const getToDos = () => {
-//   return fetch('https://dummyjson.com/todos?limit=5')
-//     .then(response => response.json())
-//     .then(response => response)
-//     .catch(error => error.message);
-// };
-// const getToDo = async () => {
-//   const todos = await getToDos();
-//   console.log(todos);
-//   todos.todos.map(item => {
-//     let div = document.createElement('div');
-//     div.className = 'todo';
-//     let id=document.createElement('p')
-//     let toDo = document.createElement('p');
-//     let completed = document.createElement('p');
-//     let userId = document.createElement('p');
 
-
-//     id.innerHTML=item.id;
-//     toDo.innerHTML = item.title;
-//     completed.innerHTML = item.completed;
-//     userId.innerHTML = item.id;
-//     div.appendChild(id)
-//     div.appendChild(toDo);
-//     div.appendChild(completed);
-//     div.appendChild(userId);
-//     toDoList.appendChild(div);
-//   });
-// };
-// getToDo();
-
-
-
-let toDoList = document.getElementById('todo-list');
-const getToDos = () => {
-  return fetch('https://dummyjson.com/todos?limit=20')
-    .then(response => response.json())
-    .then(response => response)
-    .catch(error => error.message);
+let userContainer = document.getElementById('task');
+let getToDos = async () => {
+  try {
+    let response = await fetch('https://dummyjson.com/todos?limit=2', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+       
+      })
+    });
+    if (response) {
+      
+    }
+    let data = await response.json();
+    return data.todos;
+  } catch (error) {
+    
+  }
 };
-const getToDo = async () => {
-  const todos = await getToDos();
-  console.log(todos);
-  todos.todos.map(item => {
-    let div = document.createElement('div');
-    div.className = 'todo';
-    let id=document.createElement('p')
-    let todo = document.createElement('p');
-    let completed = document.createElement('p');
-    let userId = document.createElement('p');
-    id.innerHTML=item.id;
-    todo.innerHTML = item.todo;
-    completed.innerHTML = item.completed;
-    userId.innerHTML = item.id;
-    div.appendChild(id)
-    div.appendChild(todo);
-    div.appendChild(completed);
-    div.appendChild(userId);
-    toDoList.appendChild(div);
-  });
+
+const deleteTask = async (taskId) => {
+  try {
+    const response = await fetch(`https://dummyjson.com/todos/1`, {
+      method: 'DELETE'
+    });
+    if (response.ok) {
+     
+    }
+  } catch (error) {
+    
+  }
 };
-getToDo();
+fetch('https://dummyjson.com/todos?limit=2')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+  
 
+const displaytodo = async () => {
+  const users = await getToDos();
+  console.log(users);
+  if (Array.isArray(users)) {
+    users.forEach(item => {
+      let li = document.createElement('li');
+      let checkbox = document.createElement('input');
+      let label = document.createElement('label');
+      let deleteButton = document.createElement('button');
 
+      li.style.display = 'flex';
+      li.style.alignItems = 'center';
+      li.style.padding = '10px';
+      li.style.border = '1px solid #ccc';
+      li.style.marginBottom = '10px';
 
+      checkbox.type = 'checkbox';
+      checkbox.checked = item.completed;
+      checkbox.style.marginRight = '10px';
 
+      label.textContent = item.todo;
 
+      deleteButton.textContent = 'remove';
+      deleteButton.classList.add('delete-button');
 
+      deleteButton.addEventListener('click', () => {
+        deleteTask(item.id);
+        li.remove();
+      });
 
+      li.appendChild(checkbox);
+      li.appendChild(label);
+      li.appendChild(deleteButton);
+      userContainer.appendChild(li);
+    });
+  }
+};
 
+displaytodo();
 
+const addNewTask = () => {
+  const taskInput = document.getElementById('new');
+  const newTask = taskInput.value.trim();
+  taskInput.value = '';
+  if (newTask) {
+    let li = document.createElement('li');
+    let checkbox = document.createElement('input');
+    let label = document.createElement('label');
+    let deleteButton = document.createElement('button');
 
+    li.style.display = 'flex';
+    li.style.alignItems = 'center';
+    li.style.padding = '10px';
+    li.style.border = '1px ';
+    li.style.marginBottom = '10px';
+
+    checkbox.type = 'checkbox';
+    checkbox.style.marginRight = '10px';
+
+    label.textContent = newTask;
+
+    deleteButton.textContent = 'remove';
+    deleteButton.classList.add('delete-button');
+
+    deleteButton.addEventListener('click', () => {
+      li.remove();
+    });
+
+    li.appendChild(checkbox);
+    li.appendChild(label);
+    li.appendChild(deleteButton);
+    userContainer.appendChild(li);
+  }
+};
 
 
 

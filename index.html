@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>To-Do List</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>To Do List</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="todo-list">
-    <h1>To-Do List</h1>
-    <p id="dep">Description of activities to do</p>
    
-    <a href="add.html"><button onclick="addNewTask()">Add Task</button></a>
-
-   
-  
+  <img  id="pic" src="/images/road-trip-with-raj-o4c2zoVhjSw-unsplash.jpg" width="300px" height="300px">
+  <div id="container">
+    <h1></h1>
+<input type="text" id="new" placeholder="Add">
+  <button onclick="addNewTask()" class="add-button">+</button> 
     <ul id="task">
-      <h2> Completed tasks </h2>
-      <li>
-        <input type="checkbox" id="task1">
-        <label for="task1">Reading objects in Javascript</label>
-        <button class="complete-btn">Complete</button>
-        <button class="delete-btn">-</button>
-      </li>
-      <li>
-        <input type="checkbox" id="task2">
-        <label for="task2">Coding my personal project</label>
-        <button class="complete-btn">Complete</button>
-        <button class="delete-btn">-</button>
-      </li>
-      <li>
-        <input type="checkbox" id="task3">
-        <label for="task3"></label>
-        <button class="complete-btn">Complete</button>
-        <button class="delete-btn">-</button>
-      </li>
+      <h2>My activities</h2>
+      
     </ul>
-  </div>
-  
-<script src="index.js"></script>
+   
+  </div>   
+  <script src="index.js"></script>
 </body>
 </html>
